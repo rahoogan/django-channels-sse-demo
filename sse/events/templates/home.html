@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Events Example App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"
+        integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/sse.js"></script>
+</head>
+
+<body>
+    <nav class="m-0 p-4 overflow-hidden bg-gray-800">
+        <li class="inline">
+            <a class="text-gray-200" href="/">Home</a>
+        </li>
+    </nav>
+    <h1 class="m-4 text-bold text-lg">Tasks</h1>
+    <section hx-ext="sse" sse-connect="/sse/notifications">
+        <!--This is where we will display our tasks-->
+        <div sse-swap="task_event" hx-swap="innerHTML" class="grid grid-cols-1 md:grid-cols-4 m-4 p-4 gap-2 text-wrap">
+            {% for task in tasks %}
+            {% with task as task %}
+            {% include 'task.html' %}
+            {% endwith %}
+            {% endfor %}
+        </div>
+        <div sse-swap="notification_event" hx-swap="innerHTML" id="notification"
+            class="fixed m-4 min-w-64 ms-32 text-gray-800 text-center rounded-sm p-4 z-1 bottom-0 right-0 text-wrap">
+        </div>
+    </section>
+</body>
+
+</html>

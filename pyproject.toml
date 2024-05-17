@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "sse"
+version = "0.1.0"
+description = ""
+authors = ["Moebius <moebius@moebius.space>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^5.0"
+channels = {extras = ["gunicorn"], version = "^4.1.0"}
+uvicorn = "^0.29.0"
+gunicorn = "^22.0.0"
+channels-redis = "^4.2.0"
+watchfiles = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
