@@ -1,6 +1,6 @@
 # Django Notifications with Channels and SSE
 
-This is a simple example app to demonstrate how to setup real-time notifications using Django Channels and Server Sent Events. Full write up can be found here
+This is a simple example app to demonstrate how to setup real-time notifications using Django Channels and Server Sent Events. Full write up can be found [here](https://www.techblog.moebius.space/posts/2024-04-20-sse-with-django-channels-and-htmx/)
 
 ## Getting Started
 
